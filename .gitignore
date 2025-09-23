@@ -2,3 +2,5 @@
 *.exe
 compile.class
 conexionbd.java
+*.txt
+
