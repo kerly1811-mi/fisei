@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Carrera de Software - FISEI Universidad Técnica de Ambato" />
+    <meta
+      name="author"
+      content="FISEI - Facultad de Ingeniería en Sistemas, Electrónica e Industrial"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Carrera de Software - FISEI</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/carousel/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="carousel.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .software-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 100px 0 60px;
+        margin-top: 56px;
+      }
+      .section-padding {
+        padding: 60px 0;
+      }
+      .text-primary-custom {
+        color: #712cf9 !important;
+      }
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+      .subject-card {
+        border-left: 4px solid #712cf9;
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SVG Icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+
+    <!-- Theme Toggle -->
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Header -->
+    <header data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">FISEI</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="software-hero">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h1 class="display-4 fw-bold mb-4">Ingeniería en Software</h1>
+              <p class="lead mb-4">
+                Formamos profesionales capaces de diseñar, desarrollar y gestionar soluciones informáticas innovadoras 
+                que respondan a las necesidades del mundo digital actual.
+              </p>
+              <div class="d-flex gap-3">
+                <a class="btn btn-light btn-lg" href="#mision">Conoce más</a>
+                <a class="btn btn-outline-light btn-lg" href="#materias">Plan de estudios</a>
+              </div>
+            </div>
+            <div class="col-lg-4 text-center">
+              <svg
+                aria-hidden="true"
+                class="bd-placeholder-img"
+                height="300"
+                width="300"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="100%" height="100%" fill="rgba(255,255,255,0.1)" rx="15"></rect>
+                <text x="50%" y="45%" fill="white" font-size="18" text-anchor="middle">💻</text>
+                <text x="50%" y="60%" fill="white" font-size="14" text-anchor="middle">Software Engineering</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Misión y Visión -->
+      <section id="mision" class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100 card-hover border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary-custom text-white rounded-circle p-3 me-3">
+                      <svg width="24" height="24" fill="currentColor">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-primary-custom mb-0">Misión</h3>
+                  </div>
+                  <p class="card-text">
+                    Formar profesionales en Ingeniería de Software con sólidos conocimientos técnicos, 
+                    científicos y humanísticos, capaces de desarrollar soluciones tecnológicas innovadoras 
+                    que contribuyan al desarrollo sostenible de la sociedad, mediante la aplicación de 
+                    metodologías ágiles, mejores prácticas de desarrollo y tecnologías emergentes.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100 card-hover border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary-custom text-white rounded-circle p-3 me-3">
+                      <svg width="24" height="24" fill="currentColor">
+                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-primary-custom mb-0">Visión</h3>
+                  </div>
+                  <p class="card-text">
+                    Ser reconocidos como un programa académico de excelencia a nivel nacional e internacional 
+                    en la formación de ingenieros de software, líderes en innovación tecnológica, 
+                    investigación aplicada y emprendimiento, contribuyendo al desarrollo tecnológico 
+                    del país y la región.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Objetivos -->
+      <section class="section-padding" style="background-color: #f8f9fa;">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold text-primary-custom">Objetivos</h2>
+              <p class="lead">Metas que guían nuestra formación académica</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 mb-4">
+              <div class="text-center">
+                <div class="bg-primary-custom text-white rounded-circle p-4 mx-auto mb-3" style="width: 80px; height: 80px;">
+                  <svg width="32" height="32" fill="currentColor">
+                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                  </svg>
+                </div>
+                <h4>Excelencia Técnica</h4>
+                <p>Formar profesionales con competencias técnicas avanzadas en desarrollo de software, arquitectura de sistemas y tecnologías emergentes.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="text-center">
+                <div class="bg-primary-custom text-white rounded-circle p-4 mx-auto mb-3" style="width: 80px; height: 80px;">
+                  <svg width="32" height="32" fill="currentColor">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>
+                </div>
+                <h4>Liderazgo e Innovación</h4>
+                <p>Desarrollar capacidades de liderazgo, trabajo en equipo y pensamiento innovador para liderar proyectos tecnológicos complejos.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="text-center">
+                <div class="bg-primary-custom text-white rounded-circle p-4 mx-auto mb-3" style="width: 80px; height: 80px;">
+                  <svg width="32" height="32" fill="currentColor">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </div>
+                <h4>Compromiso Social</h4>
+                <p>Formar profesionales con responsabilidad social y ética, comprometidos con el desarrollo sostenible y la solución de problemas sociales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Perfil Profesional -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold text-primary-custom">Perfil Profesional</h2>
+              <p class="lead">Competencias y habilidades del graduado</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">💼 Campo Laboral</h4>
+              <ul class="list-unstyled">
+                <li class="mb-2">✓ Desarrollador de Software Senior/Lead</li>
+                <li class="mb-2">✓ Arquitecto de Software</li>
+                <li class="mb-2">✓ Gerente de Proyectos Tecnológicos</li>
+                <li class="mb-2">✓ Consultor en Transformación Digital</li>
+                <li class="mb-2">✓ DevOps Engineer</li>
+                <li class="mb-2">✓ Product Manager Tecnológico</li>
+                <li class="mb-2">✓ Emprendedor Tecnológico</li>
+                <li class="mb-2">✓ Investigador en Tecnologías de Software</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎯 Competencias Clave</h4>
+              <ul class="list-unstyled">
+                <li class="mb-2">✓ Desarrollo Full-Stack con tecnologías modernas</li>
+                <li class="mb-2">✓ Arquitectura de microservicios y sistemas distribuidos</li>
+                <li class="mb-2">✓ Metodologías ágiles (Scrum, Kanban, DevOps)</li>
+                <li class="mb-2">✓ Cloud Computing (AWS, Azure, GCP)</li>
+                <li class="mb-2">✓ Inteligencia Artificial y Machine Learning</li>
+                <li class="mb-2">✓ Seguridad informática y ciberseguridad</li>
+                <li class="mb-2">✓ Gestión de equipos y liderazgo técnico</li>
+                <li class="mb-2">✓ Emprendimiento e innovación tecnológica</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Plan de Estudios -->
+      <section id="materias" class="section-padding" style="background-color: #f1f3f4;">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold text-primary-custom">Plan de Estudios</h2>
+              <p class="lead">Malla curricular por semestres</p>
+            </div>
+          </div>
+          
+          <!-- Primer y Segundo Semestre -->
+          <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Primer Semestre</h4>
+              <div class="subject-card p-3 mb-2">Fundamentos de Programación</div>
+              <div class="subject-card p-3 mb-2">Matemáticas Discretas</div>
+              <div class="subject-card p-3 mb-2">Álgebra Lineal</div>
+              <div class="subject-card p-3 mb-2">Introducción a la Ingeniería</div>
+              <div class="subject-card p-3 mb-2">Comunicación Oral y Escrita</div>
+              <div class="subject-card p-3 mb-2">Metodología de la Investigación</div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Segundo Semestre</h4>
+              <div class="subject-card p-3 mb-2">Programación Orientada a Objetos</div>
+              <div class="subject-card p-3 mb-2">Estructura de Datos</div>
+              <div class="subject-card p-3 mb-2">Cálculo Diferencial</div>
+              <div class="subject-card p-3 mb-2">Física Aplicada</div>
+              <div class="subject-card p-3 mb-2">Sistemas Digitales</div>
+              <div class="subject-card p-3 mb-2">Inglés Técnico I</div>
+            </div>
+          </div>
+
+          <!-- Tercer y Cuarto Semestre -->
+          <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Tercer Semestre</h4>
+              <div class="subject-card p-3 mb-2">Algoritmos y Complejidad</div>
+              <div class="subject-card p-3 mb-2">Base de Datos I</div>
+              <div class="subject-card p-3 mb-2">Ingeniería de Software I</div>
+              <div class="subject-card p-3 mb-2">Cálculo Integral</div>
+              <div class="subject-card p-3 mb-2">Estadística y Probabilidad</div>
+              <div class="subject-card p-3 mb-2">Inglés Técnico II</div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Cuarto Semestre</h4>
+              <div class="subject-card p-3 mb-2">Desarrollo Web</div>
+              <div class="subject-card p-3 mb-2">Base de Datos II</div>
+              <div class="subject-card p-3 mb-2">Ingeniería de Software II</div>
+              <div class="subject-card p-3 mb-2">Sistemas Operativos</div>
+              <div class="subject-card p-3 mb-2">Redes de Computadores</div>
+              <div class="subject-card p-3 mb-2">Ética Profesional</div>
+            </div>
+          </div>
+
+          <!-- Quinto y Sexto Semestre -->
+          <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Quinto Semestre</h4>
+              <div class="subject-card p-3 mb-2">Arquitectura de Software</div>
+              <div class="subject-card p-3 mb-2">Desarrollo Móvil</div>
+              <div class="subject-card p-3 mb-2">Seguridad Informática</div>
+              <div class="subject-card p-3 mb-2">Gestión de Proyectos</div>
+              <div class="subject-card p-3 mb-2">Inteligencia Artificial</div>
+              <div class="subject-card p-3 mb-2">Emprendimiento</div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Sexto Semestre</h4>
+              <div class="subject-card p-3 mb-2">DevOps y CI/CD</div>
+              <div class="subject-card p-3 mb-2">Cloud Computing</div>
+              <div class="subject-card p-3 mb-2">Testing y Calidad de Software</div>
+              <div class="subject-card p-3 mb-2">Metodologías Ágiles</div>
+              <div class="subject-card p-3 mb-2">Machine Learning</div>
+              <div class="subject-card p-3 mb-2">Análisis de Datos</div>
+            </div>
+          </div>
+
+          <!-- Séptimo y Octavo Semestre -->
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Séptimo Semestre</h4>
+              <div class="subject-card p-3 mb-2">Sistemas Distribuidos</div>
+              <div class="subject-card p-3 mb-2">Blockchain y Criptomonedas</div>
+              <div class="subject-card p-3 mb-2">IoT y Sistemas Embebidos</div>
+              <div class="subject-card p-3 mb-2">Prácticas Pre-profesionales</div>
+              <div class="subject-card p-3 mb-2">Proyecto de Titulación I</div>
+              <div class="subject-card p-3 mb-2">Optativa I</div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <h4 class="text-primary-custom mb-3">🎓 Octavo Semestre</h4>
+              <div class="subject-card p-3 mb-2">Realidad Virtual y Aumentada</div>
+              <div class="subject-card p-3 mb-2">Big Data y Analytics</div>
+              <div class="subject-card p-3 mb-2">Computación Cuántica</div>
+              <div class="subject-card p-3 mb-2">Proyecto de Titulación II</div>
+              <div class="subject-card p-3 mb-2">Optativa II</div>
+              <div class="subject-card p-3 mb-2">Seminario de Graduación</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recursos y Laboratorios -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold text-primary-custom">Recursos y Laboratorios</h2>
+              <p class="lead">Infraestructura tecnológica de vanguardia</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 mb-4">
+              <div class="card card-hover h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                  <div class="bg-primary-custom text-white rounded-circle p-3 mx-auto mb-3" style="width: 60px; height: 60px;">
+                    💻
+                  </div>
+                  <h5 class="card-title">Laboratorio de Desarrollo</h5>
+                  <p class="card-text">Equipos de última generación con software especializado para desarrollo full-stack, móvil y web.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card card-hover h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                  <div class="bg-primary-custom text-white rounded-circle p-3 mx-auto mb-3" style="width: 60px; height: 60px;">
+                    ☁️
+                  </div>
+                  <h5 class="card-title">Cloud Lab</h5>
+                  <p class="card-text">Acceso a plataformas cloud (AWS, Azure, GCP) para práticas de arquitectura y despliegue.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card card-hover h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                  <div class="bg-primary-custom text-white rounded-circle p-3 mx-auto mb-3" style="width: 60px; height: 60px;">
+                    🤖
+                  </div>
+                  <h5 class="card-title">AI/ML Lab</h5>
+                  <p class="card-text">Laboratorio especializado en Inteligencia Artificial y Machine Learning con GPUs y clusters de cómputo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="section-padding bg-primary text-white">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="display-5 fw-bold mb-4">¿Listo para ser parte del futuro digital?</h2>
+              <p class="lead mb-4">
+                Únete a la nueva generación de ingenieros de software que están transformando el mundo 
+                con tecnología e innovación.
+              </p>
+              <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a class="btn btn-light btn-lg" href="https://fisei.uta.edu.ec/v4.0/index.php/carreras-y-programas/software">Más Información</a>
+                <a class="btn btn-outline-light btn-lg" href="#contacto">Contactar Admisiones</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="container section-padding">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Carrera de Ingeniería en Software</h5>
+            <p>Facultad de Ingeniería en Sistemas, Electrónica e Industrial</p>
+            <p>Universidad Técnica de Ambato</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>📧 software@fisei.uta.edu.ec</p>
+            <p>📞 (03) 2848-487 Ext. 123</p>
+            <p>📍 Campus Huachi, Ambato - Ecuador</p>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center mb-0">
+          &copy; 2025 FISEI - UTA. Todos los derechos reservados. &middot;
+          <a href="#">Política de Privacidad</a> &middot; <a href="#">Términos de Uso</a>
+        </p>
+        <p class="float-end"><a href="#">Volver arriba</a></p>
+      </footer>
+    </main>
+
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>
