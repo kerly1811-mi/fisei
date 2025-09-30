@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Página de Ingeniería Industrial FISEI" />
+    <meta name="author" content="FISEI - UTA" />
+    <title>Ingeniería Industrial - FISEI</title>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .section-title {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: #712cf9;
+      }
+      .icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #712cf9;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 10px rgba(112,82,249,0.15);
+      }
+      .feature-box {
+        margin-bottom: 2rem;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        padding: 1.5rem;
+        transition: box-shadow 0.2s;
+      }
+      .feature-box:hover {
+        box-shadow: 0 4px 16px rgba(112,44,249,0.12);
+      }
+      .alert {
+        border-radius: 1rem;
+      }
+      .btn-primary {
+        background-color: #712cf9;
+        border-color: #712cf9;
+        font-weight: 600;
+      }
+      .btn-primary:hover {
+        background-color: #5a23c8;
+        border-color: #5a23c8;
+      }
+      footer.container {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e5e5e5;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">FISEI</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Horarios</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" />
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container mt-5">
+      <section>
+        <h1 class="section-title">Ingeniería Industrial</h1>
+        <p class="lead">
+          La carrera de Ingeniería Industrial forma profesionales capaces de diseñar, optimizar y gestionar procesos productivos, promoviendo la eficiencia, la innovación y la sostenibilidad en organizaciones industriales y de servicios.
+        </p>
+        <div class="row">
+          <div class="col-md-6 feature-box">
+            <div class="icon-circle"><span>&#128202;</span></div>
+            <h3>Perfil Profesional</h3>
+            <ul>
+              <li>Gestión de procesos industriales y logísticos.</li>
+              <li>Optimización de recursos y mejora continua.</li>
+              <li>Implementación de sistemas de calidad y seguridad.</li>
+              <li>Desarrollo de proyectos de innovación.</li>
+            </ul>
+          </div>
+          <div class="col-md-6 feature-box">
+            <div class="icon-circle"><span>&#128188;</span></div>
+            <h3>Campo Laboral</h3>
+            <ul>
+              <li>Industrias manufactureras y de servicios.</li>
+              <li>Consultoría y gestión de proyectos.</li>
+              <li>Logística y cadena de suministro.</li>
+              <li>Empresas públicas y privadas.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Servicios y Recursos</h2>
+        <div class="row">
+          <div class="col-md-4 feature-box">
+            <h4>Laboratorios Especializados</h4>
+            <p>Espacios equipados para prácticas de manufactura, simulación y automatización industrial.</p>
+            <a href="https://fisei.uta.edu.ec/v4.0/index.php/laboratorios" class="btn btn-primary btn-sm">Ver Laboratorios</a>
+          </div>
+          <div class="col-md-4 feature-box">
+            <h4>Vinculación con la Industria</h4>
+            <p>Participa en proyectos reales con empresas y comunidades, aplicando tus conocimientos.</p>
+            <a href="https://fisei.uta.edu.ec/v4.0/index.php/vinculacion" class="btn btn-primary btn-sm">Más Información</a>
+          </div>
+          <div class="col-md-4 feature-box">
+            <h4>Investigación y Desarrollo</h4>
+            <p>Apoyo a la innovación y desarrollo de nuevos productos y procesos industriales.</p>
+            <a href="https://fisei.uta.edu.ec/v4.0/index.php/investigacion" class="btn btn-primary btn-sm">Ver Detalles</a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Noticias y Convocatorias</h2>
+        <div class="alert alert-info">
+          <strong>Convocatoria:</strong> Participa en proyectos de investigación industrial. Inscripciones abiertas hasta el 28 de abril. Requisitos: ficha estudiantil, certificación de matrícula, oficio dirigido a la coordinación, copia de cédula y carpeta identificativa.
+        </div>
+        <div class="alert alert-success">
+          <strong>Clubes de Innovación:</strong> Únete a los clubes de innovación industrial y potencia tu formación profesional.
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Contacto</h2>
+        <p>
+          <strong>Coordinación de Ingeniería Industrial</strong><br>
+          Email: industrial@uta.edu.ec<br>
+          Teléfono: (03) 252-1234<br>
+          Dirección: Av. Los Chasquis y Río Payamino, Campus FISEI, UTA
+        </p>
+      </section>
+    </main>
+    <footer class="container mt-5">
+      <hr />
+      <p class="float-end"><a href="#">Volver arriba</a></p>
+      <p>
+        &copy; 2017–2025 FISEI, UTA &middot;
+        <a href="#">Privacidad</a> &middot; <a href="#">Términos</a>
+      </p>
+    </footer>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
